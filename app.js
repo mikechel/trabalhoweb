@@ -1,36 +1,27 @@
-function listar() {
+function tabelaPreco() {
     $.ajax({
         url: 'https://pizzaria.roxo.dev.br/',
         method: 'get',
         success(data) {
             $('#tabela').html(('<tr><td>Sabor</td><td>Valor</td></tr>'))
             data.forEach(function(item) {
-                var valorBR = JSON.stringify(item.valor);                   
-                valorBR = valorBR.slice(1, length-1)
-                valorBR = valorBR.replaceAll('.',',');
-
-                $('#tabela').append('<tr><td>' + item.nome + '</td><td>' + `R$ ${valorBR}` + '</td></tr>')
-                //?$('#tabela').append('<tr><td>' + item.nome + '</td><td>' + item.valor + '</td></tr>')
-                //com o append ele concatena a nova lista na que ja foi gerada. usando o html, o codigo gera uma lista nova e atualizada
-                
+                var valBRL = JSON.stringify(item.valor);
+                valBRL = valBRL.slice(1, length - 1)
+                valBRL = valBRL.replaceAll('.', ',');
+                $('#tabela').append(`<tr><td>` + item.nome + `</td><td>` + `R$ ${valBRL}` + `</td></tr>`)
             });
         }
     });
 }
-listar();
+tabelaPreco();
 
 function preencherSelect() {
-    $('.tab menu a').on("click",function(){
-        var qtd = $(this).val();
-    });
-    var $select1 = $('#sabor1');
-    var $select2 = $('#sabor2');
-    var $select3 = $('#sabor3');
-
+    var qtd = $('#selSabores').val(),
+        $select1 = $('#sabor1'),
+        $select2 = $('#sabor2'),
+        $select3 = $('#sabor3');
     $.getJSON('https://pizzaria.roxo.dev.br/', function(data) {
-        //$select1.html('')
-        //$select2.html('')
-        //$select3.html('')
+
         if (qtd == 1) {
             for (let i = 0; i < data.length; i++) {
                 $select1.append($('<option></option>').attr('value', parseFloat(data[i].valor)).text(data[i].nome));
@@ -47,49 +38,66 @@ function preencherSelect() {
                 $select3.append($('<option></option>').attr('value', parseFloat(data[i].valor)).text(data[i].nome));
             }
         }
-    });
+    })
 
 }
 
-//pega o valor
+function campos() {
+    if ($('#selSabores').val() == 1) {
+        $('.col1').addClass('active');
+        $('.col2').removeClass('active');
+        $('.col3').removeClass('active');
+
+    } else if ($('#selSabores').val() == 2) {
+        $('.col1').addClass('active');
+        $('.col2').addClass('active');
+        $('.col3').removeClass('active');
+      
+    } else if ($('#selSabores').val() == 3) {
+        $('.col1').addClass('active');
+        $('.col2').addClass('active');
+        $('.col3').addClass('active');
+    }
+
+    preencherSelect();
+
+}
+
 var sabor1 = 0;
 var sabor2 = 0;
 var sabor3 = 0;
 
-function getSabor1() {
-
+function pegarSabor1() {
     sabor1 = $('#sabor1').val();
-    sabor1 = parseFloat(sabor1)
-    console.log(sabor1)
-    //onfocusout
+    sabor1 = parseFloat(sabor1);
 }
 
-function getSabor2() {
+function pegarSabor2() {
     sabor2 = $('#sabor2').val();
-    sabor2 = parseFloat(sabor2)
-    console.log(sabor2)
-    //onfocusout
+    sabor2 = parseFloat(sabor2);
 }
 
-function getSabor3() {
+function pegarSabor3() {
     sabor3 = $('#sabor3').val();
-    sabor3 = parseFloat(sabor3)
-    console.log(sabor3)
-    //onfocusout
+    sabor3 = parseFloat(sabor3);    
 }
 
 
-$('.sabores .tab-menu a').first().addClass('active');
-$('.sabores .item').first().addClass('active');
-
-$('.sabores .tab-menu a').click(function(e){
-    e.preventDefault();
-    var itemId = $(this).attr('href');
-
-    $('.sabores .tab-menu a, .sabores .item').removeClass('active');
-    $('sabores .item').removeClass('active');
-
-    $(this).addClass('active');
-    $(itemId).addClass('active');
-});
-
+function calcValor() {
+    
+    if (parseInt($('#selSabores').val()) == 1) {
+        var total1 = (sabor1);
+        $('#valor').val((total1).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }));
+        
+    }
+    if ($('#selSabores').val() == 2) {
+        var total2 = (sabor1 / 2) + (sabor2 / 2);
+        $('#valor').val((total2).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }));
+       
+    }
+    if ($('#selSabores').val() == 3) {
+        var total3 = (sabor1 / 3) + (sabor2 / 3) + (sabor3 / 3);
+        $('#valor').val((total3).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }));
+        
+    }
+}

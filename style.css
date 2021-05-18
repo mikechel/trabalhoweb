@@ -16,7 +16,7 @@ body {
 }
 table, td, th {    
     
-    border: 2px solid ;
+    border: 4px solid ;
     border-color: #cc5656;
     text-align: left;
     
@@ -24,10 +24,7 @@ table, td, th {
 
 table {
     border-collapse: collapse;
-    width: 80%;
-
-    
-    
+    width: 80%;  
 }
 
 th, td {
@@ -40,9 +37,7 @@ tr:hover{background-color:#f5f5f5}
     text-align:center;
     font-size: 6em;
     display: inline;
-    margin: 60px;
-    
-
+    margin: 60px;   
 } 
 .dev {
     font-family: PixelOperatorHB8;
@@ -60,23 +55,23 @@ tr:hover{background-color:#f5f5f5}
 }
 
 .tabela{
+    
     align-items: center;
     text-align:center;
     align-content: center;
     margin:auto;
-    width: 400px;
+    width: 500px;
 }
 
-.item {
+.col1, .col2, .col3 {
 	overflow: hidden;
     opacity: 0;
-	visibility: hidden;
-	position: absolute;
+	visibility: hidden;	
 	top: 0;
 	transform: translate3d(-50px, 0,0);
 }
 
-.item.active{
+.col1.active, .col2.active, .col3.active{
 	opacity: 1;
 	visibility: visible;
 	transition: .3s;
@@ -85,42 +80,101 @@ tr:hover{background-color:#f5f5f5}
 	top: auto;
 }
 
-ul {
+.escolhaSab {
 	text-align: center;
 	margin: 80px 0 40px 0;
 }
 
-ul li {
-	display: inline-block;
-}
-
-ul li a {
+.escolhaSab h2 {
+    
 	display: inline-block;
 	color: #cc5656;
 	border: 4px solid;
 	padding: 10px 0px;
-	width: 200px;
-	margin: 20px;
+	width: 400px;    
+	margin-bottom: 20px;    
 	text-decoration: none;
 	font-family: 'Playfair Display';
 	text-transform: uppercase;
-	letter-spacing: 2px;
+	letter-spacing: 2px;  
+    
 }
+
 
 ul li a.active {
- background: #cc5656;
- color: white;
- border-color: #cc5656;
+    background: #cc5656;
+    color: white;
+    border-color: #cc5656;
 }
 
-spam{
-    align-items: center;
-    color: #cc5656;	
-	margin: 20px;
+.tit{
+    
+	display: inline-block;
+	color: #cc5656;
+	border: 4px solid;
+	padding: 10px 0px;
+	width: 392px;
+	margin-bottom: 20px;
+    margin-left: -100px;
 	text-decoration: none;
 	font-family: 'Playfair Display';
 	text-transform: uppercase;
 	letter-spacing: 2px;
-    display: block;
 
+}
+
+.select-estiloso { 
+    width: 400px;
+    height: 40px;
+    overflow: hidden;   
+    border: 1px solid #ccc;
+ }   
+
+.resultadoExibir{
+ margin: 20px;
+ align-items:left;
+}
+
+.v1 {
+    display: inline-block;
+	color: #cc5656;
+	border: 4px solid;
+	padding: 10px 0px;
+    width: 80px;
+   }
+
+.resultadoExibir input{
+    width: 210px;
+    height: 40px;
+    overflow: hidden;   
+    border: 1px solid #ccc;
+}
+
+.resultadoExibir button{
+    display: inline-block;
+	color: #cc5656;
+	border: 4px solid;
+	padding: 10px 0px;
+    width: 80px;
+}
+
+.rodape{
+
+    
+	display: inline-block;
+	color: #cc5656;
+	border: 4px solid;
+	padding: 10px 0px;
+	width: 99%;    
+	margin-bottom: 20px;    
+	font-family: 'Playfair Display';
+	text-transform: uppercase;
+	letter-spacing: 2px;  
+    margin:auto;
+    position: center;
+    
+}
+
+.rodape p{
+    text-align: center;
 }
