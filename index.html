@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Pizzaria</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="head">
+        <header class="n1">Pizza</header>
+        <header class="dev">DEVS</header>
+        <header class="n2">Pizza</header>
+    </div>
+    
+    <div class="tabela">
+        <spam>Nossos Sabores</spam>
+        <table id="tabela">
+            
+        </table>
+    </div>
+
+    <section class="sabores">
+       
+        <ul class="tab-menu" id="selSabores"  oninput="campos()">
+            <spam>Faça seu pedido!</spam>
+            <li><a href="#sabor1" value="1">1 Sabor</a></li>
+            <li><a href="#sabor2" value='2'>2 Sabores</a></li>
+            <li><a href="#sabor3" value="3">3 Sabores</a></li>
+        </ul>
+
+        <div id="co11">
+            <select class="item" id="sabor1" oninput="getSabor1()">         
+                <option selected>Escolha um Sabor</option>
+            </select>
+        </div>
+
+        <div id="co12">
+            <select class="item" id="sabor2" oninput="getSabor2()" > 
+                <option selected>Escolha um Sabor</option>
+            </select>
+        </div>
+
+        <div id="co13">
+            <select class="item" id="sabor3" oninput="getSabor3()">
+                <option selected>Escolha um Sabor</option>
+            </select>
+        </div>
+
+        <button class="total">Total</button>
+    </section>
+
+    <div class="result">
+        <p id="resultado"></p>
+    </div>
+
+
+    <section class="rodape">
+        <div class="sec1">sasasasad</div>
+        <div class="sec2">skajdkjdsaikfj</div>
+        <div class="sec3">dasfasfasffdsg</div>
+    </section>
+
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="app.js" type="text/javascript"></script>
+</body>
+
+</html>
